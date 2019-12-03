@@ -35,6 +35,7 @@
       this.DivideZeroButton = new System.Windows.Forms.Button();
       this.NullReferenceButton = new System.Windows.Forms.Button();
       this.GoToDrillDownButton = new System.Windows.Forms.Button();
+      this.CrashButton = new System.Windows.Forms.Button();
       this.groupBox1.SuspendLayout();
       this.SuspendLayout();
       // 
@@ -110,11 +111,25 @@
       this.GoToDrillDownButton.UseVisualStyleBackColor = true;
       this.GoToDrillDownButton.Click += new System.EventHandler(this.GoToDrillDownButton_Click);
       // 
+      // CrashButton
+      // 
+      this.CrashButton.BackColor = System.Drawing.Color.DarkRed;
+      this.CrashButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.CrashButton.ForeColor = System.Drawing.SystemColors.ControlLight;
+      this.CrashButton.Location = new System.Drawing.Point(568, 292);
+      this.CrashButton.Name = "CrashButton";
+      this.CrashButton.Size = new System.Drawing.Size(139, 80);
+      this.CrashButton.TabIndex = 4;
+      this.CrashButton.Text = "CRASH!";
+      this.CrashButton.UseVisualStyleBackColor = false;
+      this.CrashButton.Click += new System.EventHandler(this.CrashButton_Click);
+      // 
       // Main
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
       this.ClientSize = new System.Drawing.Size(800, 450);
+      this.Controls.Add(this.CrashButton);
       this.Controls.Add(this.GoToDrillDownButton);
       this.Controls.Add(this.groupBox1);
       this.Controls.Add(this.label1);
@@ -135,6 +150,7 @@
     private System.Windows.Forms.Button NullReferenceButton;
     private System.Windows.Forms.Button GenericErrorButton;
     private System.Windows.Forms.Button GoToDrillDownButton;
+    private System.Windows.Forms.Button CrashButton;
   }
 }
 

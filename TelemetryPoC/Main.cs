@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microsoft.AppCenter.Crashes;
 
 namespace TelemetryPoC
 {
@@ -46,11 +47,19 @@ namespace TelemetryPoC
       {
         throw exception;
       }
+      catch(ArgumentException e)
+      {
+        var message = "Something unfortunate appears to have happened: " + e.Message;
+        logger.Info(message.Replace("\n", ""));
+        MessageBox.Show(message, "Bummer!!");
+        Crashes.TrackError(e); // all the app center magic!
+      }
       catch(Exception e)
       {
         var message = "Something terrible appears to have happened: " + e.Message;
-        logger.Error(message);
+        logger.Error(message.Replace("\n",""));
         MessageBox.Show(message,"Error!!");
+        Crashes.TrackError(e); // all the app center magic!
       }
     }
 
@@ -58,6 +67,11 @@ namespace TelemetryPoC
     {
       var drillDown = new DrillDown();
       drillDown.Show();
+    }
+
+    private void CrashButton_Click(object sender, EventArgs e)
+    {
+      Crashes.GenerateTestCrash();
     }
   }
 }
