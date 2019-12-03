@@ -10,11 +10,17 @@ using System.Windows.Forms;
 
 namespace TelemetryPoC
 {
-  public partial class Form1 : Form
+  public partial class DrillDown : Form
   {
-    public Form1()
+    public DrillDown()
     {
       InitializeComponent();
+      this.Visible = false;
+    }
+
+    private void CloseButton_Click(object sender, EventArgs e)
+    {
+      this.Close();
     }
   }
 }
