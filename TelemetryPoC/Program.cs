@@ -6,6 +6,8 @@ using System.Windows.Forms;
 using Microsoft.AppCenter;
 using Microsoft.AppCenter.Analytics;
 using Microsoft.AppCenter.Crashes;
+using System.Configuration;
+
 
 namespace TelemetryPoC
 {
@@ -20,10 +22,12 @@ namespace TelemetryPoC
       Application.EnableVisualStyles();
       Application.SetCompatibleTextRenderingDefault(false);
 
-      AppCenter.Start("",
+      AppCenter.Start(ConfigurationManager.AppSettings.Get("AppId"),
         typeof(Analytics), typeof(Crashes));
 
       Application.Run(new Main());
     }
   }
 }
+
+;
