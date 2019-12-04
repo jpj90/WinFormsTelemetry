@@ -1,11 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Microsoft.AppCenter.Analytics;
+using System;
 using System.Windows.Forms;
 
 namespace TelemetryPoC
@@ -20,6 +14,7 @@ namespace TelemetryPoC
 
     private void CloseButton_Click(object sender, EventArgs e)
     {
+      Analytics.TrackEvent($"Click on [CloseButton] in {System.Reflection.MethodBase.GetCurrentMethod().DeclaringType}");
       this.Close();
     }
   }

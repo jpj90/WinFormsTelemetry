@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microsoft.AppCenter.Analytics;
 using Microsoft.AppCenter.Crashes;
 
 namespace TelemetryPoC
@@ -65,6 +66,7 @@ namespace TelemetryPoC
 
     private void GoToDrillDownButton_Click(object sender, EventArgs e)
     {
+      Analytics.TrackEvent($"Click on [GoToDrillDownButton] in {System.Reflection.MethodBase.GetCurrentMethod().DeclaringType}");
       var drillDown = new DrillDown();
       drillDown.Show();
     }
